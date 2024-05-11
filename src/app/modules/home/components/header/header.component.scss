@@ -1,0 +1,23 @@
+@import '../../../../../dist/scss/variables.scss';
+
+h1{
+    width: 100%;
+    padding: 15px 0;
+
+    text-align: center;
+    font-size: 18px;
+    color: $primary-color;
+
+    background-color: $primary-background-color;
+}
+
+h2{
+    width: 100%;
+    padding: 15px 0;
+
+    text-align: center;
+    font-size: 18px;
+    color: $primary-color;
+
+    background-color: $primary-background-color;
+}
