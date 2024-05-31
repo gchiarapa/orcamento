@@ -12755,5 +12755,8 @@
         "tslib": "^2.3.0"
       }
     }
+  },
+  "dependencies": {
+    "@angular-devkit/build-angular": "^18.0.2"
   }
 }
