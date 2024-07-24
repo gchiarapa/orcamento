@@ -1,6 +1,33 @@
 <section class="container">
     <app-header></app-header>
 </section>
-<app-form-metricas-orcamento></app-form-metricas-orcamento>
+<!-- <nav>
+    <a routerLink="/metrics" routerLinkActive="active">Metricas de orcamento</a>
+    <a routerLink="/customer" routerLinkActive="active">Orcamento</a>
+  </nav> -->
+
+<div class="row">
+    <div class="col-sm-6 mx-auto">
+        <div class="card mb-3" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Atualizar as métricas do orçamento</h5>
+                <p class="card-text">Utilize para cadastrar as métricas do orçamento</p>
+                <button routerLink="/metrics" routerLinkActive="active" type="button" class="btn btn-primary">Metricas de orcamento</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 mx-auto">
+        <div class="card mb-3" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Gerar um orçamento para o cliente</h5>
+                <p class="card-text">Utilize para gerar orçamento para o cliente</p>
+                <button routerLink="/customer" routerLinkActive="active" type="button" class="btn btn-primary">Orçamento</button>
+            </div>
+        </div>
+    </div>
+</div>
+  <router-outlet></router-outlet>
+<!-- <app-form-customer-orcamento></app-form-customer-orcamento> -->
+<!-- <app-form-metricas-orcamento></app-form-metricas-orcamento> -->
 <!-- <app-calculate-form-orcamento></app-calculate-form-orcamento> -->
-<app-calculate-button-orcamento></app-calculate-button-orcamento>
+<!-- <app-calculate-button-orcamento></app-calculate-button-orcamento> -->

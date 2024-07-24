@@ -11,9 +11,14 @@
   }
 </style>
 
-<div class="content" role="main">
+<!-- <div class="content" role="main">
   <h1>Bem-vindo ao sistem de orçamento da Grajaú Portões</h1>
   <h2>Preencha as informações abaixo para gerar o orçamento</h2>
-</div>
-
+</div> -->
+<nav>
+  <a routerLink="/metrics" routerLinkActive="active">Metricas de orcamento</a>
+  <a routerLink="/customer" routerLinkActive="active">Orcamento</a>
+  <!-- Adicione mais links conforme necessário -->
+</nav>
+<router-outlet></router-outlet>
 <app-home></app-home>

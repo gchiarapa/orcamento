@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './modules/home/pages/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormMetricasOrcamentoComponent } from './modules/home/components/form-metricas-orcamento/form-metricas-orcamento.component';
 
 @NgModule({
   declarations: [
@@ -15,9 +17,12 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HomeComponent,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
-  providers: [],
+  providers: [
+    FormMetricasOrcamentoComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

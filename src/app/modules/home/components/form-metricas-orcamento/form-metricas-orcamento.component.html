@@ -1,31 +1,17 @@
-<form #f="ngForm">
-    <ul>
-        <li>
-            <div class="form-group">
-                <label for="formGroupExampleInput">Preço do aluminio: </label>
-                <input type="number" [(ngModel)]="orcamentoValues.aluminiumValue" format="currency" precision="2" name="aluminiumValue" class="form-control"/>
-            </div>
-        </li>
-        <li>
-            <div class="form-group">
-                <label for="formGroupExampleInput2">Valor da mão de obra: </label>
-                <input type="number" [(ngModel)]="orcamentoValues.workValue" format="currency" precision="2" name="workValue" class="form-control"/>
-            </div>
-        </li>
+<div class="form-container">
+    <form #f="ngForm">
         <div class="form-group">
-            <div class="form-group">
-                <label for="formGroupExampleInput2">Tamanho: </label>
-                <input type="number" [(ngModel)]="orcamentoValues.size" precision="2" name="size" class="form-control"/>
-            </div>
+            <label for="formGroupExampleInput">Preço do aluminio: </label>
+            <input type="number" [(ngModel)]="orcamentoValues.aluminiumValue" format="currency" precision="2" name="aluminiumValue" class="form-control"/>
         </div>
-        <div class="form-group" *ngIf="orcamentoValues.total > 0">
-            <div class="form-group">
-                <label for="formGroupExampleInput2">Total: </label>
-                <input type="number" [(ngModel)]="orcamentoValues.total" precision="2" name="total" class="form-control"/>
-            </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Valor da mão de obra: </label>
+            <input type="number" [(ngModel)]="orcamentoValues.workValue" format="currency" precision="2" name="workValue" class="form-control"/>
         </div>
-    </ul>
-    <button type="submit" (click)="gerarOrcamento()" class="btn btn-primary">Gerar orçamento</button>
+    <button type="submit" (click)="atualizarOrcamentoMetricas()" class="btn btn-primary">Atualizar as métricas do orcamento</button>
+    <br><br>
+    <button type="submit" (click)="limparMetricasOrcamento()" class="btn btn-primary">Limpar as métricas do orcamento</button>
+    <br><br>
+    <button routerLink="/" routerLinkActive="active" type="button" class="btn btn-primary">Voltar a tela inicial</button>
 </form>
-<button type="submit" (click)="limparOrcamewnto()" class="btn btn-primary">Gerar novo orçamento</button>
-
+</div>

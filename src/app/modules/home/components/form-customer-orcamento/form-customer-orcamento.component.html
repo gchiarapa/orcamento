@@ -1,0 +1,41 @@
+<div class="form-container">
+    <form #f="ngForm">
+        <div class="form-group">
+            <label for="formGroupExampleInput">Nome do cliente </label>
+            <input type="text" [(ngModel)]="orcamentoCustomerValues.name" name="name" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Endereço do cliente </label>
+            <input type="text" [(ngModel)]="orcamentoCustomerValues.street" name="strrent" class="form-control"/>
+        </div>
+    <div class="form-group">
+        <div class="form-group">
+            <label for="formGroupExampleInput2">E-mail </label>
+            <input type="email" [(ngModel)]="orcamentoCustomerValues.email" name="email" class="form-control"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Telefone de Contato</label>
+            <input type="tel" [(ngModel)]="orcamentoCustomerValues.cellphone" name="phone" class="form-control"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Tamanho do portão</label>
+            <input type="number" [(ngModel)]="orcamentoCustomerValues.size" name="size" class="form-control"/>
+        </div>
+    </div>
+    <div class="form-group" *ngIf="orcamentoCustomerValues.total != ''">
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Total: </label>
+            <input type="number" [(ngModel)]="orcamentoCustomerValues.total" precision="2" name="total" class="form-control"/>
+        </div>
+    </div>
+    <button type="submit" (click)="gerarOrcamento()" class="btn btn-primary">Gerar orçamento</button>
+    <br><br>
+    <button type="submit" (click)="limparOrcamewnto()" class="btn btn-primary">Gerar novo orçamento</button>
+    <br><br>
+    <button routerLink="/" routerLinkActive="active" type="button" class="btn btn-primary">Voltar a tela inicial</button>
+</form>
+</div>

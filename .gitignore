@@ -1,2 +1,5 @@
 node_modules
 .angular/cache/18.0.2/*
+
+# Local Netlify folder
+.netlify

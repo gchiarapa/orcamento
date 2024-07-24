@@ -1,8 +1,9 @@
 import { CommonModule, NgIf } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 //interface
-import { OrcamentoValues } from 'src/app/modules/orcamento/model/orcamento-values';
+import { OrcamentoServiceService } from '../../service/orcamento-service.service';
+import { OrcamentoMetricsValues } from 'src/app/modules/orcamento/model/orcamento-metricis-values';
 
 
 @Component({
@@ -13,28 +14,36 @@ import { OrcamentoValues } from 'src/app/modules/orcamento/model/orcamento-value
   styleUrl: './form-metricas-orcamento.component.css'
 })
 export class FormMetricasOrcamentoComponent implements OnInit {
-limparOrcamewnto() {
-  this.orcamentoValues = {
-    aluminiumValue: 0,
-    workValue: 0,
-    size: 0,
-    total: 0
+
+  @Output() metricas = new EventEmitter<{aluminiumValue: number, workValue: number}>();
+  
+  constructor(private service : OrcamentoServiceService) {
+    
   }
-}
-  gerarOrcamento() {
-    this.orcamentoValues.total = this.orcamentoValues.aluminiumValue + this.orcamentoValues.workValue + this.orcamentoValues.size;
+  ngOnInit(): void {
+  
   }
 
-  public orcamentoValues: OrcamentoValues = {
-    aluminiumValue: 0,
-    workValue: 0,
-    size: 0,
-    total: 0
+  limparMetricasOrcamento() {
+  this.orcamentoValues = {
+    aluminiumValue: "",
+    workValue: ""
+  }
+}
+  atualizarOrcamentoMetricas() {
+    this.service.atualizaMetricas(this.orcamentoValues);
+  }
+
+  public orcamentoValues: OrcamentoMetricsValues = {
+    aluminiumValue: "",
+    workValue: ""
   };
 
-  constructor() { }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+
+  getOrcamentoMetricas() {
+    return this.orcamentoValues;
+  } 
 
 }
+
+

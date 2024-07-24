@@ -1,0 +1,8 @@
+.form-container {
+    width: 50%; /* Ajuste a largura conforme necessário */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    padding: 20px; /* Espaçamento interno */
+    background-color: #ffffff; /* Cor de fundo desejada */
+    border: 1px solid #cccccc; /* Opcional: borda para destacar */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Opcional: sombra suave */
+}
