@@ -3,5 +3,5 @@
   publish = "dist/orcamento"
 
 [build.environment]
-  NODE_VERSION = "16"  # Ajuste para a versão do Node.js que você está utilizando
-  NPM_VERSION = "8"    # Ajuste para a versão do NPM que você está utilizando
+  NODE_VERSION = "20"  # Ajuste para a versão do Node.js que você está utilizando
+  NPM_VERSION = "10"    # Ajuste para a versão do NPM que você está utilizando
