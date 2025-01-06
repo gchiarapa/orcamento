@@ -1,0 +1,7 @@
+[build]
+  command = "npm install && npx ng build --configuration=production"
+  publish = "dist/orcamento"
+
+[build.environment]
+  NODE_VERSION = "16"  # Ajuste para a versão do Node.js que você está utilizando
+  NPM_VERSION = "8"    # Ajuste para a versão do NPM que você está utilizando
