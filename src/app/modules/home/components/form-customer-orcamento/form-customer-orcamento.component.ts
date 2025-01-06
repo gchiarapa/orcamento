@@ -63,20 +63,11 @@ export class FormCustomerOrcamentoComponent implements OnInit {
 
   gerarOrcamento() {
     console.log("iniciando funcao gerarOrcamento");
-    // this.service.metrics$.subscribe(value => {
-    //   console.log("Valores dos custos para gerar orcamento: ", value);
-    //   this.orcamentoCustomerValues.aluminiumValue = value.
-    //   this.orcamentoCustomerValues.workValue = value.workValue
-    //   let total = this.orcamentoCustomerValues.size * (
-    //     this.orcamentoCustomerValues.aluminiumValue + this.orcamentoCustomerValues.workValue);
-    //   this.orcamentoCustomerValues.total = total;
-    //   console.log(this.orcamentoCustomerValues);
-    // })
     const values = this.service.getOrcamentoValues();
-    this.orcamentoCustomerValues.total = this.calcularOrcamento(values);
+    this.orcamentoCustomerValues.total = this.orcamentoCustomerValues.size * this.calcularOrcamento(values);
   }
-  calcularOrcamento(values: OrcamentoMetricsValues[]): any {
-    return values.reduce((aluminioValue: any, maoDeObraValor: any) => aluminioValue + maoDeObraValor, 0);
+  calcularOrcamento(values: OrcamentoMetricsValues[]): number {
+    return values.reduce((total, value) => total + (value.aluminiumValue + value.workValue), 0);
   }
 
   navigateToHome() {
