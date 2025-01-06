@@ -66,12 +66,9 @@ export class FormCustomerOrcamentoComponent implements OnInit {
       this.orcamentoCustomerValues.aluminiumValue = value.aluminiumValue
       this.orcamentoCustomerValues.workValue = value.workValue
       let total = this.orcamentoCustomerValues.size * (
-        parseInt(this.orcamentoCustomerValues.aluminiumValue) + parseInt(this.orcamentoCustomerValues.workValue)
-      );
+        this.orcamentoCustomerValues.aluminiumValue + this.orcamentoCustomerValues.workValue);
+      this.orcamentoCustomerValues.total = total;
       console.log(this.orcamentoCustomerValues);
-      this.orcamentoCustomerValues.total = parseInt(this.orcamentoCustomerValues.size) * (
-        parseInt(this.orcamentoCustomerValues.aluminiumValue) + parseInt(this.orcamentoCustomerValues.workValue));
-      console.log(this.orcamentoCustomerValues)
     })
     
   }
