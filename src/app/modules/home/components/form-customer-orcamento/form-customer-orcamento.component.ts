@@ -41,10 +41,10 @@ export class FormCustomerOrcamentoComponent implements OnInit {
     CEP: "",
     email: "",
     cellphone: "",
-    size: "",
-    aluminiumValue : "",
-    workValue: "",
-    total: ""
+    size: 0,
+    aluminiumValue : 0,
+    workValue: 0,
+    total: 0
   };
 
   limparOrcamewnto() {
@@ -56,14 +56,22 @@ export class FormCustomerOrcamentoComponent implements OnInit {
     this.orcamentoCustomerValues.CEP = "",
     this.orcamentoCustomerValues.email = "",
     this.orcamentoCustomerValues.cellphone = "",
-    this.orcamentoCustomerValues.size = "",
-    this.orcamentoCustomerValues.total = ""
+    this.orcamentoCustomerValues.size = 0,
+    this.orcamentoCustomerValues.total = 0
   }
 
   gerarOrcamento() {
     this.service.metrics$.subscribe(value => {
+      console.log("Valores dos custos para gerar orcamento: ", value);
       this.orcamentoCustomerValues.aluminiumValue = value.aluminiumValue
       this.orcamentoCustomerValues.workValue = value.workValue
+      let total = this.orcamentoCustomerValues.size * (
+        parseInt(this.orcamentoCustomerValues.aluminiumValue) + parseInt(this.orcamentoCustomerValues.workValue)
+      );
+      console.log(this.orcamentoCustomerValues);
+      this.orcamentoCustomerValues.total = parseInt(this.orcamentoCustomerValues.size) * (
+        parseInt(this.orcamentoCustomerValues.aluminiumValue) + parseInt(this.orcamentoCustomerValues.workValue));
+      console.log(this.orcamentoCustomerValues)
     })
     
   }

@@ -8,9 +8,9 @@ export interface OrcamentoCustomerValues {
     CEP: String,
     email: String,
     cellphone: String,
-    size: String,
-    aluminiumValue : string;
-    workValue: string;
-    total: String,
+    size: number,
+    aluminiumValue : number;
+    workValue: number;
+    total: number,
 
 }

@@ -26,7 +26,7 @@
             <input type="number" [(ngModel)]="orcamentoCustomerValues.size" name="size" class="form-control"/>
         </div>
     </div>
-    <div class="form-group" *ngIf="orcamentoCustomerValues.total != ''">
+    <div class="form-group" *ngIf="orcamentoCustomerValues.total > 0">
         <div class="form-group">
             <label for="formGroupExampleInput2">Total: </label>
             <input type="number" [(ngModel)]="orcamentoCustomerValues.total" precision="2" name="total" class="form-control"/>

@@ -27,8 +27,8 @@ export class FormMetricasOrcamentoComponent implements OnInit {
 
   limparMetricasOrcamento() {
   this.orcamentoValues = {
-    aluminiumValue: "",
-    workValue: ""
+    aluminiumValue: 0,
+    workValue: 0
   }
 }
   atualizarOrcamentoMetricas() {
@@ -38,8 +38,8 @@ export class FormMetricasOrcamentoComponent implements OnInit {
   }
 
   public orcamentoValues: OrcamentoMetricsValues = {
-    aluminiumValue: "",
-    workValue: ""
+    aluminiumValue: 0,
+    workValue: 0
   };
 
 

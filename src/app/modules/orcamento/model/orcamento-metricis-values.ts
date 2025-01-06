@@ -1,5 +1,5 @@
 export interface OrcamentoMetricsValues {
     
-    aluminiumValue : string;
-    workValue: string;
+    aluminiumValue : number;
+    workValue: number;
 }
