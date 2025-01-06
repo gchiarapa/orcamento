@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 //interface
 import { OrcamentoServiceService } from '../../service/orcamento-service.service';
 import { OrcamentoMetricsValues } from 'src/app/modules/orcamento/model/orcamento-metricis-values';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class FormMetricasOrcamentoComponent implements OnInit {
 
   @Output() metricas = new EventEmitter<{aluminiumValue: number, workValue: number}>();
   
-  constructor(private service : OrcamentoServiceService) {
+  constructor(private service : OrcamentoServiceService, private router: Router) {
     
   }
   ngOnInit(): void {
@@ -42,7 +43,11 @@ export class FormMetricasOrcamentoComponent implements OnInit {
 
   getOrcamentoMetricas() {
     return this.orcamentoValues;
-  } 
+  }
+
+  navigateToHome() {
+    this.router.navigate(['/']);
+  }
 
 }
 
