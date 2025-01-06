@@ -32,7 +32,9 @@ export class FormMetricasOrcamentoComponent implements OnInit {
   }
 }
   atualizarOrcamentoMetricas() {
+    console.log("Before update: " , this.orcamentoValues);
     this.service.atualizaMetricas(this.orcamentoValues);
+    console.log("After update: " , this.orcamentoValues);
   }
 
   public orcamentoValues: OrcamentoMetricsValues = {

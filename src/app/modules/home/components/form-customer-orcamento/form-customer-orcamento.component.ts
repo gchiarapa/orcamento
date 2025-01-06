@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { OrcamentoCustomerValues } from 'src/app/modules/orcamento/model/orcamento-customer-values';
 //Service
 import { OrcamentoServiceService } from '../../service/orcamento-service.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class FormCustomerOrcamentoComponent implements OnInit {
   
   subscription: Subscription | undefined;
 
-  constructor(private service : OrcamentoServiceService) {
+  constructor(private service : OrcamentoServiceService, private router: Router) {
     this.subscription = service.metrics$.subscribe(
       values => {
         this.orcamentoCustomerValues.aluminiumValue = values.aluminiumValue
@@ -65,6 +66,10 @@ export class FormCustomerOrcamentoComponent implements OnInit {
       this.orcamentoCustomerValues.workValue = value.workValue
     })
     
+  }
+
+  navigateToHome() {
+    this.router.navigate(['/']);
   }
 
   
