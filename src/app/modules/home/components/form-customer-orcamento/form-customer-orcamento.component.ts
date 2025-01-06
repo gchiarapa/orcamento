@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 //interface
 import { OrcamentoCustomerValues } from 'src/app/modules/orcamento/model/orcamento-customer-values';
 //Service
 import { OrcamentoServiceService } from '../../service/orcamento-service.service';
 import { Router } from '@angular/router';
+import { OrcamentoMetricsValues } from 'src/app/modules/orcamento/model/orcamento-metricis-values';
 
 
 @Component({
@@ -21,12 +22,12 @@ export class FormCustomerOrcamentoComponent implements OnInit {
   subscription: Subscription | undefined;
 
   constructor(private service : OrcamentoServiceService, private router: Router) {
-    this.subscription = service.metrics$.subscribe(
-      values => {
-        this.orcamentoCustomerValues.aluminiumValue = values.aluminiumValue
-        this.orcamentoCustomerValues.workValue = values.workValue
-      }
-    )
+    // this.subscription = service.metrics$.subscribe(
+    //   values => {
+    //     this.orcamentoCustomerValues.aluminiumValue = values.aluminiumValue
+    //     this.orcamentoCustomerValues.workValue = values.workValue
+    //   }
+    // )
   }
   ngOnInit(): void {
       
@@ -61,16 +62,21 @@ export class FormCustomerOrcamentoComponent implements OnInit {
   }
 
   gerarOrcamento() {
-    this.service.metrics$.subscribe(value => {
-      console.log("Valores dos custos para gerar orcamento: ", value);
-      this.orcamentoCustomerValues.aluminiumValue = value.aluminiumValue
-      this.orcamentoCustomerValues.workValue = value.workValue
-      let total = this.orcamentoCustomerValues.size * (
-        this.orcamentoCustomerValues.aluminiumValue + this.orcamentoCustomerValues.workValue);
-      this.orcamentoCustomerValues.total = total;
-      console.log(this.orcamentoCustomerValues);
-    })
-    
+    console.log("iniciando funcao gerarOrcamento");
+    // this.service.metrics$.subscribe(value => {
+    //   console.log("Valores dos custos para gerar orcamento: ", value);
+    //   this.orcamentoCustomerValues.aluminiumValue = value.
+    //   this.orcamentoCustomerValues.workValue = value.workValue
+    //   let total = this.orcamentoCustomerValues.size * (
+    //     this.orcamentoCustomerValues.aluminiumValue + this.orcamentoCustomerValues.workValue);
+    //   this.orcamentoCustomerValues.total = total;
+    //   console.log(this.orcamentoCustomerValues);
+    // })
+    const values = this.service.getOrcamentoValues();
+    this.orcamentoCustomerValues.total = this.calcularOrcamento(values);
+  }
+  calcularOrcamento(values: OrcamentoMetricsValues[]): any {
+    return values.reduce((aluminioValue: any, maoDeObraValor: any) => aluminioValue + maoDeObraValor, 0);
   }
 
   navigateToHome() {

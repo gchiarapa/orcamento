@@ -1,5 +1,5 @@
 import { CommonModule, NgIf } from '@angular/common';
-import { Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 //interface
 import { OrcamentoServiceService } from '../../service/orcamento-service.service';
@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 })
 export class FormMetricasOrcamentoComponent implements OnInit {
 
-  @Output() metricas = new EventEmitter<{aluminiumValue: number, workValue: number}>();
+  values: OrcamentoMetricsValues[] = [];
   
   constructor(private service : OrcamentoServiceService, private router: Router) {
     
@@ -33,7 +33,12 @@ export class FormMetricasOrcamentoComponent implements OnInit {
 }
   atualizarOrcamentoMetricas() {
     console.log("Before update: " , this.orcamentoValues);
-    this.service.atualizaMetricas(this.orcamentoValues);
+    const newValues: OrcamentoMetricsValues = {
+      aluminiumValue: this.orcamentoValues.aluminiumValue,
+      workValue: this.orcamentoValues.workValue
+    }
+    this.values.push(newValues);
+    this.service.atualizaMetricas(this.values);
     console.log("After update: " , this.orcamentoValues);
   }
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { OrcamentoMetricsValues } from '../../orcamento/model/orcamento-metricis-values';
 
 @Injectable({
@@ -8,14 +8,13 @@ import { OrcamentoMetricsValues } from '../../orcamento/model/orcamento-metricis
 export class OrcamentoServiceService {
   constructor() { }
   
-  private metricas = new Subject<OrcamentoMetricsValues>();
-  
+  private metricas = new BehaviorSubject<OrcamentoMetricsValues[]>([]);
   metrics$ = this.metricas.asObservable();
   
-  getOrcamentoValues() {
-    return this.metricas.asObservable();
+  getOrcamentoValues(): OrcamentoMetricsValues[] {
+    return this.metricas.getValue();
   }
-  atualizaMetricas(values: OrcamentoMetricsValues) {
+  atualizaMetricas(values: OrcamentoMetricsValues[]) {
     this.metricas.next(values);
   }
 }
