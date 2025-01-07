@@ -8,6 +8,7 @@ import { OrcamentoCustomerValues } from 'src/app/modules/orcamento/model/orcamen
 import { OrcamentoServiceService } from '../../service/orcamento-service.service';
 import { Router } from '@angular/router';
 import { OrcamentoMetricsValues } from 'src/app/modules/orcamento/model/orcamento-metricis-values';
+import { EmailServiceService } from 'src/app/service/email/email-service.service';
 
 
 @Component({
@@ -21,7 +22,9 @@ export class FormCustomerOrcamentoComponent implements OnInit {
   
   subscription: Subscription | undefined;
 
-  constructor(private service : OrcamentoServiceService, private router: Router) {
+  constructor(private service : OrcamentoServiceService, private router: Router
+    , private emailService: EmailServiceService
+  ) {
     // this.subscription = service.metrics$.subscribe(
     //   values => {
     //     this.orcamentoCustomerValues.aluminiumValue = values.aluminiumValue
@@ -48,7 +51,7 @@ export class FormCustomerOrcamentoComponent implements OnInit {
     total: 0
   };
 
-  limparOrcamewnto() {
+  limparOrcamento() {
     this.orcamentoCustomerValues.name = "",
     this.orcamentoCustomerValues.street = "",
     this.orcamentoCustomerValues.streetNumber = 0,
@@ -73,7 +76,11 @@ export class FormCustomerOrcamentoComponent implements OnInit {
   navigateToHome() {
     this.router.navigate(['/']);
   }
-
+  enviaOrcamentoEmail() {
+    this.emailService.sendEmail(this.orcamentoCustomerValues.email, "Titulo Teste"
+      , "Teste de email de orcamento"
+    )
+  }
   
 }
 

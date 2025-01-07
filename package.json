@@ -12765,7 +12765,11 @@
     "@ng-bootstrap/ng-bootstrap": "^17.0.0",
     "@popperjs/core": "^2.11.8",
     "@schematics/angular": "^18.0.7",
+    "@sendgrid/mail": "^8.1.4",
+    "body-parser": "^1.20.3",
     "bootstrap": "^5.3.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
     "jquery": "^3.3.1"
   },
   "devDependencies": {

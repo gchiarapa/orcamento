@@ -1,13 +1,13 @@
 export interface OrcamentoCustomerValues {
 
-    name : String,
-    street: String,
+    name : string,
+    street: string,
     streetNumber: number,
-    state: String,
-    city: String,
-    CEP: String,
-    email: String,
-    cellphone: String,
+    state: string,
+    city: string,
+    CEP: string,
+    email: string,
+    cellphone: string,
     size: number,
     aluminiumValue : number;
     workValue: number;
