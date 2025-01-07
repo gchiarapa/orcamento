@@ -9,6 +9,11 @@ exports.handler = async (event) => {
     return {
       statusCode: 405,
       body: JSON.stringify({ message: 'Método não permitido' }),
+      headers: {
+        'Access-Control-Allow-Origin': '*', // Permite qualquer origem
+        'Access-Control-Allow-Methods': 'POST',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      },
     };
   }
 
@@ -29,6 +34,11 @@ exports.handler = async (event) => {
     return {
       statusCode: 200,
       body: JSON.stringify({ message: 'E-mail enviado com sucesso!' }),
+      headers: {
+        'Access-Control-Allow-Origin': '*', // Permite qualquer origem
+        'Access-Control-Allow-Methods': 'POST',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      },
     };
   } catch (error) {
     console.error('Erro ao enviar e-mail:', error);
@@ -36,6 +46,9 @@ exports.handler = async (event) => {
     return {
       statusCode: 500,
       body: JSON.stringify({ message: 'Erro ao enviar e-mail', error: error.message }),
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
     };
   }
 };
