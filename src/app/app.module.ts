@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -18,7 +19,8 @@ import { FormMetricasOrcamentoComponent } from './modules/home/components/form-m
     AppRoutingModule,
     HomeComponent,
     FormsModule,
-    NgbModule
+    NgbModule, 
+    HttpClientModule
   ],
   providers: [
     FormMetricasOrcamentoComponent
