@@ -77,9 +77,11 @@ export class FormCustomerOrcamentoComponent implements OnInit {
     this.router.navigate(['/']);
   }
   enviaOrcamentoEmail() {
-    this.emailService.sendEmail(this.orcamentoCustomerValues.email, "Titulo Teste"
+    console.log("Iniciando envio de email");
+    let response = this.emailService.sendEmail(this.orcamentoCustomerValues.email, "Titulo Teste"
       , "Teste de email de orcamento"
     )
+    console.log("Response:" , response);
   }
   
 }

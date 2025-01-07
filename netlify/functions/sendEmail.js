@@ -17,11 +17,13 @@ exports.handler = async (event) => {
 
     const msg = {
       to: to, // Destinatário
-      from: 'seu-email@dominio.com', // E-mail verificado no SendGrid
+      from: 'gchiarapa@gmail.com', // E-mail verificado no SendGrid
       subject: subject,
       text: text,
     };
 
+    console.log("Mensagem: " , msg);
+    console.log("Iniciando envio de email");
     await sgMail.send(msg);
 
     return {
